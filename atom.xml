@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2016-08-15T08:28:29.000Z</updated>
+  <updated>2016-08-16T01:22:18.000Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -20,10 +20,10 @@
     <link href="http://yoursite.com/2016/08/15/%E6%9C%80%E5%88%9D%E7%9A%84%E8%B5%B7%E7%82%B9/"/>
     <id>http://yoursite.com/2016/08/15/最初的起点/</id>
     <published>2016-08-15T07:35:28.000Z</published>
-    <updated>2016-08-15T08:28:29.000Z</updated>
+    <updated>2016-08-16T01:22:18.000Z</updated>
     
     <content type="html"><![CDATA[<p>作为一个程序员，一直都在简书、CSDN、cocoachina上面写博客，但总觉得自己的博客还是归属别人管理，而作为一个标准的程序员我觉得一定要有自己的个人站点，因此一狠心，一无所有的情况下先去万网花钱买了本域名    <a href="zhangjiahuan.cn">zhangjiahuan.cn</a> 。</p>
-<p>域名都买了，就没有拖延的理由了，那就说做就做，最近刚好在看《拖延心理学》，之前在github page创建了一个网站，不过样式太过low，因此百度其他资料，找到目前在用的基于node的静态博客框架hexo，安装遇到各种问题，活了整整一天时间终于搞定，可以正常访问，写下第一篇博客。</p>
+<p>域名都买了，就没有拖延的理由了，那就说做就做，最近刚好在看《拖延心理学》，之前在github page创建了一个网站，不过样式太过low，因此百度其他资料，找到目前在用的基于node的静态博客框架hexo，安装遇到各种问题，花了整整一天时间终于搞定，可以正常访问，写下第一篇博客。</p>
 <p>以后工作中的技术文章，生活感悟都写在该博客，记录下技术的成长，同时也记录下生活的点滴，算是给未来留下回忆。。。</p>
 <p>以最好的姿态迎接最美好的明天！！！</p>
 ]]></content>

@@ -4,9 +4,9 @@
   <subtitle>竹杖芒鞋轻胜马，谁怕？一蓑代码任平生</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="zhangjiahuan.cn/"/>
   <updated>2016-08-26T06:37:05.000Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>zhangjiahuan.cn/</id>
   
   <author>
     <name>John Doe</name>
@@ -17,8 +17,8 @@
   
   <entry>
     <title>WKWebView来代替UIWebView</title>
-    <link href="http://yoursite.com/2016/08/26/WKWebView%E6%9D%A5%E4%BB%A3%E6%9B%BFUIWebView/"/>
-    <id>http://yoursite.com/2016/08/26/WKWebView来代替UIWebView/</id>
+    <link href="zhangjiahuan.cn/2016/08/26/WKWebView%E6%9D%A5%E4%BB%A3%E6%9B%BFUIWebView/"/>
+    <id>zhangjiahuan.cn/2016/08/26/WKWebView来代替UIWebView/</id>
     <published>2016-08-26T06:14:35.000Z</published>
     <updated>2016-08-26T06:37:05.000Z</updated>
     
@@ -51,8 +51,8 @@
   
   <entry>
     <title>Swift之去掉UITableView headerView黏性</title>
-    <link href="http://yoursite.com/2016/08/22/Swift%E4%B9%8B%E5%8E%BB%E6%8E%89UItableview-headerview%E9%BB%8F%E6%80%A7%20/"/>
-    <id>http://yoursite.com/2016/08/22/Swift之去掉UItableview-headerview黏性 /</id>
+    <link href="zhangjiahuan.cn/2016/08/22/Swift%E4%B9%8B%E5%8E%BB%E6%8E%89UItableview-headerview%E9%BB%8F%E6%80%A7%20/"/>
+    <id>zhangjiahuan.cn/2016/08/22/Swift之去掉UItableview-headerview黏性 /</id>
     <published>2016-08-22T09:43:07.000Z</published>
     <updated>2016-08-24T01:30:49.000Z</updated>
     
@@ -68,19 +68,19 @@
     
     </summary>
     
-      <category term="iOS" scheme="http://yoursite.com/categories/iOS/"/>
+      <category term="iOS" scheme="zhangjiahuan.cn/categories/iOS/"/>
     
     
-      <category term="swift" scheme="http://yoursite.com/tags/swift/"/>
+      <category term="swift" scheme="zhangjiahuan.cn/tags/swift/"/>
     
-      <category term="headerView" scheme="http://yoursite.com/tags/headerView/"/>
+      <category term="headerView" scheme="zhangjiahuan.cn/tags/headerView/"/>
     
   </entry>
   
   <entry>
     <title>最初的起点</title>
-    <link href="http://yoursite.com/2016/08/15/%E6%9C%80%E5%88%9D%E7%9A%84%E8%B5%B7%E7%82%B9/"/>
-    <id>http://yoursite.com/2016/08/15/最初的起点/</id>
+    <link href="zhangjiahuan.cn/2016/08/15/%E6%9C%80%E5%88%9D%E7%9A%84%E8%B5%B7%E7%82%B9/"/>
+    <id>zhangjiahuan.cn/2016/08/15/最初的起点/</id>
     <published>2016-08-15T07:35:28.000Z</published>
     <updated>2016-08-22T06:13:15.000Z</updated>
     
@@ -96,17 +96,17 @@
     
     </summary>
     
-      <category term="生活" scheme="http://yoursite.com/categories/%E7%94%9F%E6%B4%BB/"/>
+      <category term="生活" scheme="zhangjiahuan.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="起点" scheme="http://yoursite.com/tags/%E8%B5%B7%E7%82%B9/"/>
+      <category term="起点" scheme="zhangjiahuan.cn/tags/%E8%B5%B7%E7%82%B9/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://yoursite.com/2016/08/15/hello-world/"/>
-    <id>http://yoursite.com/2016/08/15/hello-world/</id>
+    <link href="zhangjiahuan.cn/2016/08/15/hello-world/"/>
+    <id>zhangjiahuan.cn/2016/08/15/hello-world/</id>
     <published>2016-08-15T06:07:45.000Z</published>
     <updated>2016-08-15T06:07:45.000Z</updated>
     

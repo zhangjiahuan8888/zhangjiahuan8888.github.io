@@ -53,11 +53,11 @@
   </entry>
   
   <entry>
-    <title>WKWebView来代替UIWebView</title>
+    <title>WKWebView来代替UIWebView使用</title>
     <link href="http://zhangjiahuan.cn/2016/08/26/WKWebView%E6%9D%A5%E4%BB%A3%E6%9B%BFUIWebView/"/>
     <id>http://zhangjiahuan.cn/2016/08/26/WKWebView来代替UIWebView/</id>
     <published>2016-08-26T06:14:35.000Z</published>
-    <updated>2016-08-26T06:37:05.000Z</updated>
+    <updated>2016-10-31T06:24:56.000Z</updated>
     
     <content type="html"><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>以前加载网页视图一直使用UIWebView，因为一直没有过太复杂的网页，所以没有遇到占用内存过大的问题。昨天有人问我UIWebView内存处理问题，一时也不知如何回答，后来想起iOS8发布的WebKit框架中WKWebView进行了大幅优化，可以减小内存的占用及加载速度也更快，因此进行了小的尝试，果然WKWebView的提升很明显，简直大爱。。</p>
 <h3 id="先看效果"><a href="#先看效果" class="headerlink" title="先看效果"></a>先看效果</h3><p><img src="http://ww3.sinaimg.cn/large/c05ce1e9gw1f76zip8fnoj207a04waae.jpg" alt="使用UIWebView内存占用"><img src="http://ww2.sinaimg.cn/large/c05ce1e9gw1f76ziy6enjj207804vt93.jpg" alt="使用WKWebView内存占用"></p>

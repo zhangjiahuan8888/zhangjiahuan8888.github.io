@@ -68,7 +68,7 @@
 <link href="../../../../css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="MVC,设计模式," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -86,19 +86,22 @@
 
 
 
-<meta name="description" content="MVC本身不是最基本的设计模式，它包含了若干更加基本的设计模式。在MVC 中，基本设计模式互相配合，确定了各项功能之间的协作，这是MVC应用程序的特性。Cocoa Touch的MVC用到的模式有：组合、命令、中介者、策略和观察者。
-组合视图对象之间以协作的方式构成一个视图层次体系，其中既可以有复合视图（比如表格视图），也可以有独立视图（比如文本框或按钮）。每个层次的每个视图节点都可以响应用户的操作">
+<meta name="description" content="北漂：写在上家公司解散之后
+现在是2016年11月3日，晚上11点，随便写点什么吧。
+就在一个多月前，也就是国庆节放假前夕，前公司领导弹开了我的QQ界面，原文大概是这样：“国庆节回来之后，集团要对富海进行清算了，赶紧找下家跳吧”。得知这个噩耗，内心是平静的，却又不那么平静，其实自从“融财易”上架之后，我的确有三个月真真正正没有做项目了，公司的解散也是意料之中吧，只是来的有点突然，让我刚刚稳定了一点">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Cocoa Touch上复合设计模式的MVC">
-<meta property="og:url" content="http://zhangjiahuan.cn/2016/09/23/Cocoa-Touch上复合设计模式的MVC /index.html">
+<meta property="og:title" content="张家欢">
+<meta property="og:url" content="http://zhangjiahuan.cn/2016/11/03/北漂：写在上家公司解散之后/index.html">
 <meta property="og:site_name" content="张家欢">
-<meta property="og:description" content="MVC本身不是最基本的设计模式，它包含了若干更加基本的设计模式。在MVC 中，基本设计模式互相配合，确定了各项功能之间的协作，这是MVC应用程序的特性。Cocoa Touch的MVC用到的模式有：组合、命令、中介者、策略和观察者。
-组合视图对象之间以协作的方式构成一个视图层次体系，其中既可以有复合视图（比如表格视图），也可以有独立视图（比如文本框或按钮）。每个层次的每个视图节点都可以响应用户的操作">
-<meta property="og:updated_time" content="2016-09-23T09:30:48.000Z">
+<meta property="og:description" content="北漂：写在上家公司解散之后
+现在是2016年11月3日，晚上11点，随便写点什么吧。
+就在一个多月前，也就是国庆节放假前夕，前公司领导弹开了我的QQ界面，原文大概是这样：“国庆节回来之后，集团要对富海进行清算了，赶紧找下家跳吧”。得知这个噩耗，内心是平静的，却又不那么平静，其实自从“融财易”上架之后，我的确有三个月真真正正没有做项目了，公司的解散也是意料之中吧，只是来的有点突然，让我刚刚稳定了一点">
+<meta property="og:updated_time" content="2016-11-03T15:37:49.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Cocoa Touch上复合设计模式的MVC">
-<meta name="twitter:description" content="MVC本身不是最基本的设计模式，它包含了若干更加基本的设计模式。在MVC 中，基本设计模式互相配合，确定了各项功能之间的协作，这是MVC应用程序的特性。Cocoa Touch的MVC用到的模式有：组合、命令、中介者、策略和观察者。
-组合视图对象之间以协作的方式构成一个视图层次体系，其中既可以有复合视图（比如表格视图），也可以有独立视图（比如文本框或按钮）。每个层次的每个视图节点都可以响应用户的操作">
+<meta name="twitter:title" content="张家欢">
+<meta name="twitter:description" content="北漂：写在上家公司解散之后
+现在是2016年11月3日，晚上11点，随便写点什么吧。
+就在一个多月前，也就是国庆节放假前夕，前公司领导弹开了我的QQ界面，原文大概是这样：“国庆节回来之后，集团要对富海进行清算了，赶紧找下家跳吧”。得知这个噩耗，内心是平静的，却又不那么平静，其实自从“融财易”上架之后，我的确有三个月真真正正没有做项目了，公司的解散也是意料之中吧，只是来的有点突然，让我刚刚稳定了一点">
 
 
 
@@ -119,9 +122,9 @@
 
 
 
-  <link rel="canonical" href="http://zhangjiahuan.cn/2016/09/23/Cocoa-Touch上复合设计模式的MVC /"/>
+  <link rel="canonical" href="http://zhangjiahuan.cn/2016/11/03/北漂：写在上家公司解散之后/"/>
 
-  <title> Cocoa Touch上复合设计模式的MVC | 张家欢 </title>
+  <title>  | 张家欢 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -261,7 +264,7 @@
             
             
               
-                Cocoa Touch上复合设计模式的MVC
+                
               
             
           </h1>
@@ -273,30 +276,11 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-09-23T17:30:48+08:00" content="2016-09-23">
-              2016-09-23
+            <time itemprop="dateCreated" datetime="2016-11-03T23:37:49+08:00" content="2016-11-03">
+              2016-11-03
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="../../../../categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -304,7 +288,7 @@
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
                 <a href="#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/09/23/Cocoa-Touch上复合设计模式的MVC /" itemprop="commentsCount"></span>
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/11/03/北漂：写在上家公司解散之后/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -332,18 +316,14 @@
       
 
       
-        <p>MVC本身不是最基本的设计模式，它包含了若干更加基本的设计模式。在MVC 中，基本设计模式互相配合，确定了各项功能之间的协作，这是MVC应用程序的特性。<br>Cocoa Touch的MVC用到的模式有：组合、命令、中介者、策略和观察者。</p>
-<h4 id="组合"><a href="#组合" class="headerlink" title="组合"></a>组合</h4><p>视图对象之间以协作的方式构成一个视图层次体系，其中既可以有复合视图（比如表格视图），也可以有独立视图（比如文本框或按钮）。每个层次的每个视图节点都可以响应用户的操作并把自己绘制到屏幕上。</p>
-<h4 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h4><p>这是一种“目标-动作”机制，视图对象可以推迟其他对象（比如控制器）的执行，让其他对象等到发生了某些事件之后再执行，这一机制构成了命令模式。</p>
-<h4 id="中介者"><a href="#中介者" class="headerlink" title="中介者"></a>中介者</h4><p>控制器对象起着中间人的作用，而这个中间人则采用了中介者模式，它构成了在模型和视图对象之家传递数据的双向通道。应用程序的控制器对象将模型的变更传达给视图对象。</p>
-<h4 id="策略"><a href="#策略" class="headerlink" title="策略"></a>策略</h4><p>控制器可以使试图对象的一个“策略”，视图对象将自己隔离，以期维持其作为数据展示器的唯一职责，而将一切应用程序持有的界面行为决定委派给它的“策略”对象（控制器）。</p>
-<h4 id="观察者"><a href="#观察者" class="headerlink" title="观察者"></a>观察者</h4><p>模型对象向它所关注的控制器等对象发出内部状态变化的通知，从而控制器将变更了数据模型传递给视图，更新视图。</p>
-<h4 id="这些模式协同工作流程："><a href="#这些模式协同工作流程：" class="headerlink" title="这些模式协同工作流程："></a>这些模式协同工作流程：</h4><ol>
-<li>用户在视图上用手指触摸或拖动，产生一个触摸事件。被触摸的实际视图就在视图组合中的某个层次上。视图将触摸消息传达给试图控制器。</li>
-<li>控制器对象接收到触摸事件及其相关信息，然后应用策略来改变模型的状态，必要时请求视图对象根据此事件更新其行为或外观。</li>
-<li>每当变更发生并已反映到模型对象，模型对象就会通知所有已注册的观察者对象，如控制器。</li>
-<li>控制器就像一个协调人，它将变更了的数据从模型传递给视图，以便视图可以相应地更新其外观。</li>
-</ol>
+        <p>北漂：写在上家公司解散之后</p>
+<p>现在是2016年11月3日，晚上11点，随便写点什么吧。</p>
+<p>就在一个多月前，也就是国庆节放假前夕，前公司领导弹开了我的QQ界面，原文大概是这样：“国庆节回来之后，集团要对富海进行清算了，赶紧找下家跳吧”。得知这个噩耗，内心是平静的，却又不那么平静，其实自从“融财易”上架之后，我的确有三个月真真正正没有做项目了，公司的解散也是意料之中吧，只是来的有点突然，让我刚刚稳定了一点平静了一点的生活又要踏上一段未知的飘摇。</p>
+<p>国庆回来，又是拖延了三天，其中还约了两个面试，10号正式离职，下午打最后一次卡，背着包从财富中心最后一次走下，心中或许还有些许的不舍，但当走出大堂，抬头看着熟悉的灯火辉煌的央视大楼，东三环的车水马龙，更多的是对前路的不确定。他妈的，老子又要从头开始了！</p>
+<p>之后开始了待在出租屋的投简历的漫长生活，每天几百份简历投出去等待着面试电话的时间特别漫长，似乎连手中的点八中南海的自燃速度都跟着慢了下来，一星期屈指可数的面试真的很考验心理承受能力。以至于准备放弃北京，回济宁过小日子去，约了两场面试，然而情况并不理想，回济宁的念头打消。后来试着投了天津的公司，的确还是外地的公司比较慧眼识珠，约了两个面试，谈好了一家公司，房子都找好了，正待离开北京时候，几个朋友相劝留在北京，最终也没去成天津，或许以后有机会吧。</p>
+<p>留在北京，工作依然不好找，北京的iOS开发处于水深火热之中，硬着头皮继续四处投递简历，以乞求一份面试邀请，古人说得好：瞎猫总会碰见死耗子的。还是换来了几份面试，而且结果也是好的，最终拿到了两家的offer，没多想就选择了现在的公司，一家叫火星小毛驴的公司，这个名字我喜欢。</p>
+<p>前路我依然不知道是个什么样子，我要的生活是什么我也不知道，但我知道明天总会比昨天变得好一点，只要你想它变得好一点。</p>
+<p>当生活依然不明朗的时候你能做的就是不断学习，让自己足够强大起来，机会也会更多的向你走来，继续奋斗吧，少年。哦不，应该是大龄青年了。。。</p>
 
       
     </div>
@@ -364,30 +344,18 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="../../../../tags/MVC/" rel="tag">#MVC</a>
-          
-            <a href="../../../../tags/设计模式/" rel="tag">#设计模式</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="../../../08/26/WKWebView来代替UIWebView/" rel="next" title="WKWebView来代替UIWebView使用">
-                <i class="fa fa-chevron-left"></i> WKWebView来代替UIWebView使用
+              <a href="../../../09/23/Cocoa-Touch上复合设计模式的MVC /" rel="next" title="Cocoa Touch上复合设计模式的MVC">
+                <i class="fa fa-chevron-left"></i> Cocoa Touch上复合设计模式的MVC
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="../../../11/03/北漂：写在上家公司解散之后/" rel="prev" title="">
-                 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -413,8 +381,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/09/23/Cocoa-Touch上复合设计模式的MVC /"
-           data-title="Cocoa Touch上复合设计模式的MVC" data-url="http://zhangjiahuan.cn/2016/09/23/Cocoa-Touch上复合设计模式的MVC /">
+      <div class="ds-thread" data-thread-key="2016/11/03/北漂：写在上家公司解散之后/"
+           data-title="" data-url="http://zhangjiahuan.cn/2016/11/03/北漂：写在上家公司解散之后/">
       </div>
     
   </div>
@@ -512,7 +480,7 @@
               
             
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#组合"><span class="nav-number">1.</span> <span class="nav-text">组合</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#命令"><span class="nav-number">2.</span> <span class="nav-text">命令</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#中介者"><span class="nav-number">3.</span> <span class="nav-text">中介者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#策略"><span class="nav-number">4.</span> <span class="nav-text">策略</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#观察者"><span class="nav-number">5.</span> <span class="nav-text">观察者</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#这些模式协同工作流程："><span class="nav-number">6.</span> <span class="nav-text">这些模式协同工作流程：</span></a></li></ol></div>
+              <p class="post-toc-empty">This post does not have a Table of Contents</p>
             
           </div>
         </section>

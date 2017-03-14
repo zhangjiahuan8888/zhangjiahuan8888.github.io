@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhangjiahuan.cn/"/>
-  <updated>2016-12-14T01:29:23.000Z</updated>
+  <updated>2017-03-14T15:37:15.000Z</updated>
   <id>http://zhangjiahuan.cn/</id>
   
   <author>
@@ -14,6 +14,33 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>北京的白天与黑夜</title>
+    <link href="http://zhangjiahuan.cn/2017/03/14/%E5%8C%97%E4%BA%AC%E7%9A%84%E7%99%BD%E5%A4%A9%E4%B8%8E%E9%BB%91%E5%A4%9C/"/>
+    <id>http://zhangjiahuan.cn/2017/03/14/北京的白天与黑夜/</id>
+    <published>2017-03-14T15:36:00.000Z</published>
+    <updated>2017-03-14T15:37:15.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>清晨的街头，<br>摩拜依旧在争先恐后。<br>小小的轮子，<br>承载的到底是什么，<br>是北京的喧嚣？<br>是奔向前方的希望？<br>还是只顾着赶路的急切？<br>有你有我。<br>不曾知道环线上的车水马龙，<br>公主坟的换乘，<br>是每天的必修课，<br>更像是一门体育课。<br>高楼里的小蚂蚁，<br>对着电脑打哈欠，<br>手指不停息。<br>生活总是这样，<br>慌慌张张、匆匆忙忙。<br>傍晚，<br>路灯悄悄亮起，<br>地铁依旧很挤，<br>鸡蛋灌饼还是那个味道，<br>公寓依旧嘈杂。<br>夜深人静了，<br>也会让人胡思乱想，<br>明天会是在哪里。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;清晨的街头，&lt;br&gt;摩拜依旧在争先恐后。&lt;br&gt;小小的轮子，&lt;br&gt;承载的到底是什么，&lt;br&gt;是北京的喧嚣？&lt;br&gt;是奔向前方的希望？&lt;br&gt;还是只顾着赶路的急切？&lt;br&gt;有你有我。&lt;br&gt;不曾知道环线上的车水马龙，&lt;br&gt;公主坟的换乘，&lt;br&gt;是每天的必修课，&lt;br&gt;更像
+    
+    </summary>
+    
+      <category term="生活" scheme="http://zhangjiahuan.cn/categories/%E7%94%9F%E6%B4%BB/"/>
+    
+    
+      <category term="前路" scheme="http://zhangjiahuan.cn/tags/%E5%89%8D%E8%B7%AF/"/>
+    
+      <category term="北漂" scheme="http://zhangjiahuan.cn/tags/%E5%8C%97%E6%BC%82/"/>
+    
+      <category term="感悟" scheme="http://zhangjiahuan.cn/tags/%E6%84%9F%E6%82%9F/"/>
+    
+  </entry>
   
   <entry>
     <title>北漂：写在上家公司解散之后</title>
@@ -41,9 +68,9 @@
       <category term="生活" scheme="http://zhangjiahuan.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="倒闭" scheme="http://zhangjiahuan.cn/tags/%E5%80%92%E9%97%AD/"/>
-    
       <category term="北漂" scheme="http://zhangjiahuan.cn/tags/%E5%8C%97%E6%BC%82/"/>
+    
+      <category term="倒闭" scheme="http://zhangjiahuan.cn/tags/%E5%80%92%E9%97%AD/"/>
     
   </entry>
   

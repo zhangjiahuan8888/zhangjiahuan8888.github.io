@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://zhangjiahuan.cn/"/>
-  <updated>2017-03-23T08:29:20.000Z</updated>
+  <updated>2017-04-06T14:53:42.000Z</updated>
   <id>http://zhangjiahuan.cn/</id>
   
   <author>
@@ -14,6 +14,66 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二维码的生成和读取</title>
+    <link href="http://zhangjiahuan.cn/2017/04/06/%E4%BA%8C%E7%BB%B4%E7%A0%81%E7%9A%84%E6%89%AB%E6%8F%8F%E5%92%8C%E8%AF%BB%E5%8F%96/"/>
+    <id>http://zhangjiahuan.cn/2017/04/06/二维码的扫描和读取/</id>
+    <published>2017-04-06T14:52:43.000Z</published>
+    <updated>2017-04-06T14:53:42.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>二维码的生成</p>
+<p>从iOS7开始集成了二维码的生成和读取功能<br>此前被广泛使用的zbarsdk目前不支持64位处理器</p>
+<p>生成二维码的步骤：<br>导入CoreImage框架<br>通过滤镜CIFilter生成二维码</p>
+<p>二维码的内容(传统的条形码只能放数字)：<br>1.纯文本<br>2.名片<br>3.URL</p>
+<p>生成二维码<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">// 1. 实例化二维码滤镜</div><div class="line">CIFilter *filter = [CIFilter filterWithName:@&quot;CIQRCodeGenerator&quot;];</div><div class="line">// 2. 恢复滤镜的默认属性</div><div class="line">[filter setDefaults];</div><div class="line"></div><div class="line">// 3. 将字符串转换成NSData</div><div class="line">NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];</div><div class="line"></div><div class="line">// 4. 通过KVO设置滤镜inputMessage数据</div><div class="line">[filter setValue:data forKey:@&quot;inputMessage&quot;];</div><div class="line"></div><div class="line">// 5. 获得滤镜输出的图像</div><div class="line">CIImage *outputImage = [filter outputImage];</div><div class="line"></div><div class="line">// 6. 将CIImage转换成UIImage，并放大显示</div><div class="line">return [UIImage imageWithCIImage:outputImage scale:20.0 orientation:UIImageOrientationUp];</div></pre></td></tr></table></figure></p>
+<p>读取二维码</p>
+<p>读取二维码需要导入AVFoundation框架<br>利用摄像头识别二维码中的内容（模拟器不行）</p>
+<p>输入（摄像头）<br>由会话将摄像头采集到的二维码图像转换成字符串数据<br>输出（数据）<br>由预览图层显示扫描场景</p>
+<p>设置拍摄会话<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">// 1. 实例化拍摄设备</div><div class="line">AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];</div><div class="line">// 2. 设置输入设备</div><div class="line">AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];</div><div class="line">// 3. 设置元数据输出</div><div class="line">// 3.1 实例化拍摄元数据输出</div><div class="line">AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];</div><div class="line">// 3.3 设置输出数据代理</div><div class="line">[output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];</div><div class="line">// 4. 添加拍摄会话</div><div class="line">// 4.1 实例化拍摄会话</div><div class="line">AVCaptureSession *session = [[AVCaptureSession alloc] init];</div><div class="line">// 4.2 添加会话输入</div><div class="line">[session addInput:input];</div><div class="line">// 4.3 添加会话输出</div><div class="line">[session addOutput:output];</div><div class="line">// 4.3 设置输出数据类型，需要将元数据输出添加到会话后，才能指定元数据类型，否则会报错</div><div class="line">[output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];</div></pre></td></tr></table></figure></p>
+<p>设置拍摄视频预览图层<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">// 5. 视频预览图层</div><div class="line">// 5.1 实例化预览图层</div><div class="line">AVCaptureVideoPreviewLayer *preview = [AVCaptureVideoPreviewLayer layerWithSession:_session];</div><div class="line">preview.videoGravity = AVLayerVideoGravityResizeAspectFill;</div><div class="line">preview.frame = self.view.bounds;</div><div class="line">// 5.2 将图层插入当前视图</div><div class="line">[self.view.layer insertSublayer:preview atIndex:100];</div><div class="line">self.previewLayer = preview;</div><div class="line"></div><div class="line">// 6. 启动会话</div><div class="line">[_session startRunning];</div></pre></td></tr></table></figure></p>
+<hr>
+<p>生成百度二维码实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line">#import &lt;CoreImage/CoreImage.h&gt;</div><div class="line"></div><div class="line">@interface ViewController ()</div><div class="line">@property (weak, nonatomic) IBOutlet UIImageView *iv;</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event</div><div class="line">&#123;</div><div class="line">    // 1.实例化二维码滤镜</div><div class="line">    CIFilter *filter = [CIFilter filterWithName:@&quot;CIQRCodeGenerator&quot;];</div><div class="line"></div><div class="line">    // 2.恢复滤镜的默认属性 (因为滤镜有可能保存上一次的属性)</div><div class="line">    [filter setDefaults];</div><div class="line"></div><div class="line">    // 3.将字符串转换成NSdata</div><div class="line">    NSData *data  = [@&quot;http://www.baidu.com&quot; dataUsingEncoding:NSUTF8StringEncoding];</div><div class="line"></div><div class="line">    // 4.通过KVO设置滤镜, 传入data, 将来滤镜就知道要通过传入的数据生成二维码</div><div class="line">    [filter setValue:data forKey:@&quot;inputMessage&quot;];</div><div class="line"></div><div class="line">    // 5.生成二维码</div><div class="line">     CIImage *outputImage = [filter outputImage];</div><div class="line"></div><div class="line">    UIImage *image = [UIImage  imageWithCIImage:outputImage];</div><div class="line"></div><div class="line">    // 6.设置生成好得二维码到imageview上</div><div class="line">    self.iv.image = image;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure></p>
+<p>读取百度二维码实例<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div></pre></td><td class="code"><pre><div class="line">#import &lt;AVFoundation/AVFoundation.h&gt;</div><div class="line"></div><div class="line">@interface ViewController ()&lt;AVCaptureMetadataOutputObjectsDelegate&gt;</div><div class="line">@property (nonatomic, strong) AVCaptureSession *session;</div><div class="line">@property (nonatomic, strong) AVCaptureVideoPreviewLayer *previewLayer;</div><div class="line">@end</div><div class="line"></div><div class="line">@implementation ViewController</div><div class="line"></div><div class="line">- (void)viewDidLoad &#123;</div><div class="line">    [super viewDidLoad];</div><div class="line"></div><div class="line">    // 1. 实例化拍摄设备</div><div class="line">    AVCaptureDevice *device = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];</div><div class="line"></div><div class="line">    // 2. 设置输入设备</div><div class="line">    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:device error:nil];</div><div class="line"></div><div class="line">    // 3. 设置元数据输出</div><div class="line">    // 3.1 实例化拍摄元数据输出</div><div class="line">    AVCaptureMetadataOutput *output = [[AVCaptureMetadataOutput alloc] init];</div><div class="line">    // 3.3 设置输出数据代理</div><div class="line">    [output setMetadataObjectsDelegate:self queue:dispatch_get_main_queue()];</div><div class="line"></div><div class="line">    // 4. 添加拍摄会话</div><div class="line">    // 4.1 实例化拍摄会话</div><div class="line">    AVCaptureSession *session = [[AVCaptureSession alloc] init];</div><div class="line">    // 4.2 添加会话输入</div><div class="line">    [session addInput:input];</div><div class="line">    // 4.3 添加会话输出</div><div class="line">    [session addOutput:output];</div><div class="line">    // 4.3 设置输出数据类型，需要将元数据输出添加到会话后，才能指定元数据类型，否则会报错</div><div class="line">    [output setMetadataObjectTypes:@[AVMetadataObjectTypeQRCode]];</div><div class="line"></div><div class="line">    self.session = session;</div><div class="line"></div><div class="line">    // 5. 视频预览图层</div><div class="line">    // 5.1 实例化预览图层, 传递_session是为了告诉图层将来显示什么内容</div><div class="line">    AVCaptureVideoPreviewLayer *preview = [AVCaptureVideoPreviewLayer layerWithSession:_session];</div><div class="line"></div><div class="line">    preview.videoGravity = AVLayerVideoGravityResizeAspectFill;</div><div class="line">    preview.frame = self.view.bounds;</div><div class="line">    // 5.2 将图层插入当前视图</div><div class="line">    [self.view.layer insertSublayer:preview atIndex:100];</div><div class="line"></div><div class="line">    self.previewLayer = preview;</div><div class="line"></div><div class="line">    // 6. 启动会话</div><div class="line">    [_session startRunning];</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">- (void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection</div><div class="line">&#123;</div><div class="line"></div><div class="line">    // 会频繁的扫描，调用代理方法</div><div class="line">    // 1. 如果扫描完成，停止会话</div><div class="line">    [self.session stopRunning];</div><div class="line">    // 2. 删除预览图层</div><div class="line">    [self.previewLayer removeFromSuperlayer];</div><div class="line"></div><div class="line">    NSLog(@&quot;%@&quot;, metadataObjects);</div><div class="line">    // 3. 设置界面显示扫描结果</div><div class="line"></div><div class="line">    if (metadataObjects.count &gt; 0) &#123;</div><div class="line">        AVMetadataMachineReadableCodeObject *obj = metadataObjects[0];</div><div class="line">        // 提示：如果需要对url或者名片等信息进行扫描，可以在此进行扩展！</div><div class="line">        NSLog(@&quot;%@&quot;, obj.stringValue);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;二维码的生成&lt;/p&gt;
+&lt;p&gt;从iOS7开始集成了二维码的生成和读取功能&lt;br&gt;此前被广泛使用的zbarsdk目前不支持64位处理器&lt;/p&gt;
+&lt;p&gt;生成二维码的步骤：&lt;br&gt;导入CoreImage框架&lt;br&gt;通过滤镜CIFilter生成二维码&lt;/p&gt;
+&lt;p&gt;二维码的内容(传统
+    
+    </summary>
+    
+      <category term="iOS" scheme="http://zhangjiahuan.cn/categories/iOS/"/>
+    
+    
+      <category term="二维码" scheme="http://zhangjiahuan.cn/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/"/>
+    
+      <category term="ios" scheme="http://zhangjiahuan.cn/tags/ios/"/>
+    
+  </entry>
+  
+  <entry>
+    <title></title>
+    <link href="http://zhangjiahuan.cn/2017/04/05/%E5%9B%BE%E7%89%87%E9%AB%98%E6%B8%85%E5%BA%A6%E5%A4%AA%E9%AB%98,%20%E5%AF%BC%E8%87%B4%E5%86%85%E5%AD%98%E8%BF%87%E5%A4%A7Crash/"/>
+    <id>http://zhangjiahuan.cn/2017/04/05/图片高清度太高, 导致内存过大Crash/</id>
+    <published>2017-04-05T12:17:31.000Z</published>
+    <updated>2017-04-05T12:17:31.000Z</updated>
+    
+    <content type="html"><![CDATA[<p>先说一下状况, 后台提供的图片太高清了, 每个图片都在2-4MB, iOS上每个页面需要同时下载并展示10-15张.<br>这个时候, 如果我多滑动collectionView几次, 直接App就崩溃了(reason: 是内存警告, 超出每个App可用的最大内存限制)</p>
+<p>解决方法: 经过各种百度, Google以后. 我是这样解决的. 缩小图片的高清度.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^&#123;</div><div class="line">#</div><div class="line">NSString cachePath = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES).lastObject;[cachePath stringByAppendingPathComponent:@&quot;imageCache&quot;];</div><div class="line">#</div><div class="line">NSString imagePath = [NSString stringWithFormat:@&quot;%@/%d&quot;, cachePath, [self.theExhib.worksPic hash]];</div><div class="line">#</div><div class="line">NSFileManager fileManager = [NSFileManager defaultManager];NSData da = nil;</div><div class="line">##</div><div class="line">// 判断一下图片在本地在不在</div><div class="line">if ([fileManager fileExistsAtPath:imagePath]) &#123;</div><div class="line">// 如果在, 直接就取</div><div class="line">da = [NSData dataWithContentsOfFile:imagePath];</div><div class="line">&#125;else &#123;</div><div class="line">// 如果不在, 就重新下载(self.theExhib.worksPic是网址)</div><div class="line">da = [NSData dataWithContentsOfURL:[NSURL URLWithString:self.theExhib.worksPic]];</div><div class="line">// 把图片流写入本地[da writeToFile:imagePath atomically:YES];</div><div class="line">&#125;</div><div class="line">#</div><div class="line">// 把NSData流转化成UIImage对象</div><div class="line">UIImage ima = [UIImage imageWithData:da];</div><div class="line">// 调用自己的方法imageWithImageSimple scaldToSize: (Size后面填写的你要缩小成的图片分辨率)</div><div class="line">ima = [self imageWithImageSimple:ima scaledToSize:CGSizeMake(100, 200)];</div><div class="line">// 回到主线程刷新UI dispatch_async(dispatch_get_main_queue(), ^&#123;[self.bacImageV setImage:ima];</div><div class="line">&#125;);</div><div class="line">&#125;);</div><div class="line">####</div><div class="line">- ( UIImage )imageWithImageSimple:( UIImage )image scaledToSize:( CGSize )newSize&#123;</div><div class="line">#</div><div class="line">UIGraphicsBeginImageContext (newSize);</div><div class="line">#</div><div class="line">[image drawInRect : CGRectMake ( 0 , 0 ,newSize. width ,newSize. height )];</div><div class="line">#</div><div class="line">UIImage  newImage = UIGraphicsGetImageFromCurrentImageContext ();</div><div class="line">#</div><div class="line">UIGraphicsEndImageContext ();</div><div class="line">#</div><div class="line">return newImage;</div><div class="line">&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;先说一下状况, 后台提供的图片太高清了, 每个图片都在2-4MB, iOS上每个页面需要同时下载并展示10-15张.&lt;br&gt;这个时候, 如果我多滑动collectionView几次, 直接App就崩溃了(reason: 是内存警告, 超出每个App可用的最大内存限制)&lt;/p
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>最近面试问题总结-iOS</title>
@@ -125,9 +185,9 @@
       <category term="生活" scheme="http://zhangjiahuan.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="前路" scheme="http://zhangjiahuan.cn/tags/%E5%89%8D%E8%B7%AF/"/>
-    
       <category term="北漂" scheme="http://zhangjiahuan.cn/tags/%E5%8C%97%E6%BC%82/"/>
+    
+      <category term="前路" scheme="http://zhangjiahuan.cn/tags/%E5%89%8D%E8%B7%AF/"/>
     
       <category term="感悟" scheme="http://zhangjiahuan.cn/tags/%E6%84%9F%E6%82%9F/"/>
     
@@ -159,9 +219,9 @@
       <category term="生活" scheme="http://zhangjiahuan.cn/categories/%E7%94%9F%E6%B4%BB/"/>
     
     
-      <category term="北漂" scheme="http://zhangjiahuan.cn/tags/%E5%8C%97%E6%BC%82/"/>
-    
       <category term="倒闭" scheme="http://zhangjiahuan.cn/tags/%E5%80%92%E9%97%AD/"/>
+    
+      <category term="北漂" scheme="http://zhangjiahuan.cn/tags/%E5%8C%97%E6%BC%82/"/>
     
   </entry>
   
